@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-canvas font-sans text-[15px] text-ink antialiased;
+  }
+  ::selection {
+    background: #ccfbf1;
+  }
+}
+
+/* Range slider: teal fill up to the current value. */
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(to right, #0f766e 0%, #0f766e var(--pct, 50%), #e2e8f0 var(--pct, 50%), #e2e8f0 100%);
+  cursor: pointer;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 999px;
+  background: #fff;
+  border: 2px solid #0f766e;
+  box-shadow: 0 1px 3px rgba(23, 32, 51, 0.2);
+}
+.slider::-moz-range-thumb {
+  height: 18px;
+  width: 18px;
+  border-radius: 999px;
+  background: #fff;
+  border: 2px solid #0f766e;
+}
+.slider:focus-visible {
+  outline: 2px solid #0f766e;
+  outline-offset: 4px;
+}
+input[type='range'].slider:not([style*='--pct']) {
+  background: #e2e8f0;
+}
+
+/* Recharts: hide the default focus rectangle (our wrappers carry the label). */
+.recharts-wrapper:focus,
+.recharts-surface:focus {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

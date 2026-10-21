@@ -1,0 +1,9 @@
+/** What to say while demonstrating each step (2–3 sentences each). */
+export const PRESENTER_NOTES: string[] = [
+  'Every wireless sensor link starts with a measurement. Here a simulated node reports temperature and humidity, which are packed into a 15-byte frame with a sync byte, a sequence number, a timestamp and a CRC-16 checksum so the receiver can detect corruption.',
+  'ASK represents binary data through changes in signal amplitude. In this implementation, binary zero is represented by no carrier and binary one by a carrier, making this an on-off keying implementation of ASK. FSK represents binary data using two different carrier frequencies. The receiver identifies the transmitted bit by determining which frequency is more strongly represented in the received signal.',
+  'The channel weakens the signal with distance using a log-distance path-loss model and adds Gaussian noise. The SNR slider sets the receiver noise floor, so moving the transmitter further away lowers the signal-to-noise ratio at the receiver. Optional fading and interference make the channel harsher.',
+  'These are the actual samples produced by the modulator, not an illustration. With ASK the carrier switches on and off; with FSK the amplitude stays constant and the frequency changes. The same bits are transmitted in both cases.',
+  'The receiver only sees the noisy waveform. For ASK it measures the carrier envelope in each bit and compares it with a threshold; for FSK it compares the energy at the two tone frequencies. The recovered bits are checked against the CRC, and the sensor values are shown only if the packet is valid.',
+  'A single packet is not enough to judge a modulation scheme, so this step simulates hundreds of packets for both ASK and FSK with identical data and noise. The charts show how the bit error rate falls with SNR and how delivery drops with distance. The observation text is generated from these measured numbers.',
+];
